@@ -1,0 +1,1199 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Events levels</name>
+    <events>
+        <comment>use this template to learn from it and make your game happens. have fun! :)</comment>
+        <comment>sprites/assets are from kenney.nl | the font used here is Good Neighbors font by Clint Bellanger from opengameart.org (search it) | musics and sounds are from scirra freebundle</comment>
+        <comment>all levels use the events from here</comment>
+        <comment>Points: the quantity of points the player gets, it is related with the function AddPoints</comment>
+        <variable constant="0" name="Points" sid="504651981040031" static="0" type="number">0</variable>
+        <comment>actions to execute when star layout</comment>
+        <event-block sid="4426511992647102">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="3967129726275252" type="System" />
+            </conditions>
+            <actions>
+                <action id="33" name="Stop all" sid="657849387707906" type="Audio" />
+                <action id="0" name="Play" sid="651671776177991" type="Audio">
+                    <param id="0" name="Audio file">MattOglseby - 3</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">-15</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="690651213792692" type="PlayerSprites">
+                    <param id="0" name="Object">Player</param>
+                    <param id="1" name="Image point (optional)">0</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="542009757588945" type="PlayerSprites">
+                    <param id="0" name="Pin to">Player</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+                <action id="-10" name="Set value" sid="760042189360511" type="PlayerSprites">
+                    <param id="0" name="Instance variable">players</param>
+                    <param id="1" name="Value">PlayerSel</param>
+                </action>
+                <action id="4" name="Set animation" sid="272302449308323" type="PlayerSprites">
+                    <param id="0" name="Animation">&quot;idle&quot; &amp; PlayerSel</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="11" name="Set collisions enabled" sid="756855824078450" type="Player">
+                    <param id="0" name="Collisions">1</param>
+                </action>
+                <action id="-13" name="Set boolean" sid="359525746221225" type="Cpause">
+                    <param id="0" name="Instance variable">pause</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-24" name="Move to top" sid="229536430423434" type="Enemy" />
+                <action id="-9" name="Destroy" sid="106855498656719" type="Cup" />
+                <action id="-9" name="Destroy" sid="963160396159887" type="Cright" />
+                <action id="-9" name="Destroy" sid="222049994232012" type="Cleft" />
+                <action id="-9" name="Destroy" sid="387813366660616" type="Cmenu" />
+                <action id="-13" name="Set boolean" sid="317056808385814" type="Cpause">
+                    <param id="0" name="Instance variable">visivel</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="979930715162382" type="Cpause">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="4" name="Set animation" sid="841850458218046" type="Enemy">
+                    <param id="0" name="Animation">&quot;ataque&quot; &amp; Enemy.Tipo</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-5" name="Set width" sid="421570734004952" type="Hearts">
+                    <param id="0" name="Width">Player.Lives * 64</param>
+                </action>
+                <action id="-3" name="Set position" sid="741018526677531" type="Hearts">
+                    <param id="0" name="X">896</param>
+                    <param id="1" name="Y">109</param>
+                </action>
+                <action id="-7" name="Set size" sid="783619573055813" type="Texto">
+                    <param id="0" name="Width">320</param>
+                    <param id="1" name="Height">108</param>
+                </action>
+                <action id="-3" name="Set position" sid="456153514953218" type="Bkg">
+                    <param id="0" name="X">0</param>
+                    <param id="1" name="Y">0</param>
+                </action>
+                <action id="-7" name="Set size" sid="149459366438589" type="Bkg">
+                    <param id="0" name="Width">LayoutWidth</param>
+                    <param id="1" name="Height">LayoutHeight</param>
+                </action>
+                <action id="0" name="Call function" sid="186440171455561" type="Function">
+                    <param id="0" name="Name">&quot;RefreshHUD&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="-9" name="Destroy" sid="529029603433408" type="TextPoints" />
+            </actions>
+        </event-block>
+        <comment>show touch controls</comment>
+        <event-block sid="914827195293710">
+            <conditions>
+                <condition id="0" name="On any touch start" sid="503037440864620" type="Touch" />
+                <condition id="-9" inverted="1" name="Is visible" sid="386460245594125" type="Cpause" />
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="757145704260027" type="Cpause">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-3" name="Create object" sid="690438897634045" type="System">
+                    <param id="0" name="Object to create">Cleft</param>
+                    <param id="1" name="Layer">&quot;Hud&quot;</param>
+                    <param id="2" name="X">96</param>
+                    <param id="3" name="Y">640</param>
+                </action>
+                <action id="-3" name="Create object" sid="446047368810464" type="System">
+                    <param id="0" name="Object to create">Cright</param>
+                    <param id="1" name="Layer">&quot;Hud&quot;</param>
+                    <param id="2" name="X">256</param>
+                    <param id="3" name="Y">640</param>
+                </action>
+                <action id="-3" name="Create object" sid="179166390513228" type="System">
+                    <param id="0" name="Object to create">Cup</param>
+                    <param id="1" name="Layer">&quot;Hud&quot;</param>
+                    <param id="2" name="X">1184</param>
+                    <param id="3" name="Y">640</param>
+                </action>
+                <action id="-3" name="Create object" sid="960286438971802" type="System">
+                    <param id="0" name="Object to create">Cmenu</param>
+                    <param id="1" name="Layer">&quot;Hud&quot;</param>
+                    <param id="2" name="X">128</param>
+                    <param id="3" name="Y">128</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>hide touch controls</comment>
+        <event-block sid="460656275733576">
+            <conditions>
+                <condition id="1" name="On any key pressed" sid="719219494953427" type="Keyboard" />
+                <condition id="-9" name="Is visible" sid="945704755368165" type="Cpause" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="897026419984274" type="Cup" />
+                <action id="-9" name="Destroy" sid="408485401893956" type="Cright" />
+                <action id="-9" name="Destroy" sid="227071187062029" type="Cleft" />
+                <action id="-9" name="Destroy" sid="386874514429994" type="Cmenu" />
+                <action id="-15" name="Set visible" sid="865450156035225" type="Cpause">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>******** player animation and controls: begin</comment>
+        <event-block sid="9625992838860382">
+            <conditions>
+                <condition id="-8" name="Is boolean instance variable set" sid="3215747225869425" type="Player">
+                    <param id="0" name="Instance variable">IsOk</param>
+                </condition>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="314294584069799" type="Cpause">
+                    <param id="0" name="Instance variable">pause</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block any="1" sid="8844537519732849">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="2844935762611709" type="Keyboard">
+                            <param id="0" name="Key">38 (Up arrow)</param>
+                        </condition>
+                        <condition id="2" name="Key is down" sid="125971109031420" type="Keyboard">
+                            <param id="0" name="Key">87 (W)</param>
+                        </condition>
+                        <condition id="3" name="On touched object" sid="159203259212186" type="Touch">
+                            <param id="0" name="Object">Cup</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="8715800842155896" type="Player">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="813268054408611">
+                    <conditions>
+                        <condition behavior="Platform" id="2" name="Is on floor" sid="838470176753072" type="Player" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block any="1" sid="1618011835417097">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="8918097527525649" type="Keyboard">
+                                    <param id="0" name="Key">37 (Left arrow)</param>
+                                </condition>
+                                <condition id="2" name="Key is down" sid="226628734047348" type="Keyboard">
+                                    <param id="0" name="Key">65 (A)</param>
+                                </condition>
+                                <condition id="4" name="Is touching object" sid="475586890222294" type="Touch">
+                                    <param id="0" name="Object">Cleft</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="1361756544715304" type="Player">
+                                    <param id="0" name="Control">0</param>
+                                </action>
+                                <action id="7" name="Set mirrored" sid="7500311767523496" type="PlayerSprites">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="4492347552910957" type="PlayerSprites">
+                                    <param id="0" name="Animation">&quot;walk&quot; &amp; PlayerSprites.players</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" sid="702244432442077">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="3582767475566948" type="Keyboard">
+                                    <param id="0" name="Key">39 (Right arrow)</param>
+                                </condition>
+                                <condition id="2" name="Key is down" sid="827317731530565" type="Keyboard">
+                                    <param id="0" name="Key">68 (D)</param>
+                                </condition>
+                                <condition id="4" name="Is touching object" sid="379023077133409" type="Touch">
+                                    <param id="0" name="Object">Cright</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="1289141837721036" type="Player">
+                                    <param id="0" name="Control">1</param>
+                                </action>
+                                <action id="7" name="Set mirrored" sid="821717637978284" type="PlayerSprites">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="9060869080822172" type="PlayerSprites">
+                                    <param id="0" name="Animation">&quot;walk&quot; &amp; PlayerSprites.players</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="148771072477385">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="314272107763941" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block any="1" sid="679565044216008">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="121227206288715" type="Keyboard">
+                                    <param id="0" name="Key">37 (Left arrow)</param>
+                                </condition>
+                                <condition id="2" name="Key is down" sid="542465524532048" type="Keyboard">
+                                    <param id="0" name="Key">65 (A)</param>
+                                </condition>
+                                <condition id="4" name="Is touching object" sid="126855528395124" type="Touch">
+                                    <param id="0" name="Object">Cleft</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="772458803283478" type="Player">
+                                    <param id="0" name="Control">0</param>
+                                </action>
+                                <action id="7" name="Set mirrored" sid="262926864597974" type="PlayerSprites">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" sid="152948166908121">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="194807222787649" type="Keyboard">
+                                    <param id="0" name="Key">39 (Right arrow)</param>
+                                </condition>
+                                <condition id="2" name="Key is down" sid="471151960820523" type="Keyboard">
+                                    <param id="0" name="Key">68 (D)</param>
+                                </condition>
+                                <condition id="4" name="Is touching object" sid="505072484590224" type="Touch">
+                                    <param id="0" name="Object">Cright</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="334798384382774" type="Player">
+                                    <param id="0" name="Control">1</param>
+                                </action>
+                                <action id="7" name="Set mirrored" sid="556031381268086" type="PlayerSprites">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block any="1" sid="3666252182837325">
+            <conditions>
+                <condition behavior="Platform" id="7" name="On stopped" sid="972358621359657" type="Player" />
+                <condition behavior="Platform" id="9" name="On landed" sid="2539389019198859" type="Player" />
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="7277926758786756" type="PlayerSprites">
+                    <param id="0" name="Animation">&quot;idle&quot; &amp; PlayerSprites.players</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-10" name="Set value" sid="877768553629726" type="Player">
+                    <param id="0" name="Instance variable">Hurt</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="740181299679892">
+            <conditions>
+                <condition behavior="Platform" id="3" name="Is jumping" sid="2235439952065283" type="Player" />
+                <condition id="-7" name="Compare instance variable" sid="539181859133798" type="Player">
+                    <param id="0" name="Instance variable">Hurt</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="4629695411612516" type="PlayerSprites">
+                    <param id="0" name="Animation">&quot;jump&quot; &amp; PlayerSprites.players</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="720838701821835">
+            <conditions>
+                <condition behavior="Platform" id="4" name="Is falling" sid="338263604507301" type="Player" />
+                <condition id="-7" name="Compare instance variable" sid="207628478260051" type="Player">
+                    <param id="0" name="Instance variable">Hurt</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="903595557963139" type="PlayerSprites">
+                    <param id="0" name="Animation">&quot;fall&quot; &amp; PlayerSprites.players</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>******** player animation and controls: end</comment>
+        <comment>when player hit a crystal</comment>
+        <event-block sid="9117105451271533">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="9548224893975557" type="Player">
+                    <param id="0" name="Object">Crystal</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="9095790105919944" type="Crystal" />
+                <action id="0" name="Play" sid="166776746914625" type="Audio">
+                    <param id="0" name="Audio file">SFX1</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-15</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="0" name="Call function" sid="260233488330648" type="Function">
+                    <param id="0" name="Name">&quot;RefreshHUD&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="0" name="Call function" sid="725628624165993" type="Function">
+                    <param id="0" name="Name">&quot;AddPoints&quot;</param>
+                    <param id="1" name="Parameter {n}">2</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>when the player is destroyed go to menu</comment>
+        <event-block sid="968146854726945">
+            <conditions>
+                <condition id="-19" name="On destroyed" sid="722469622360547" type="Player" />
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="246678619416119" type="System">
+                    <param id="0" name="Layout">Menu</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>player vs box</comment>
+        <event-block sid="4584694553439079">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="6087841613987579" type="Player">
+                    <param id="0" name="Object">Box</param>
+                </condition>
+                <condition id="-2" name="Compare Y" sid="807153780389769" type="Box">
+                    <param id="0" name="Comparison">2</param>
+                    <param id="1" name="Y co-ordinate">Player.ImagePointY(1)</param>
+                </condition>
+                <condition id="2" inverted="1" name="Is playing" sid="7030909803130464" type="Box">
+                    <param id="0" name="Animation">&quot;quebrada&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="7345714346614805" type="Box">
+                    <param id="0" name="Animation">&quot;quebrada&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="0" name="Play" sid="606576261778621" type="Audio">
+                    <param id="0" name="Audio file">Lazer Ricochet</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-5</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>if player falls, destroy it</comment>
+        <event-block sid="623649223274401">
+            <conditions>
+                <condition id="-2" name="Compare Y" sid="296466732057158" type="Player">
+                    <param id="0" name="Comparison">4</param>
+                    <param id="1" name="Y co-ordinate">LayoutHeight+100</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="864220526778617" type="Player" />
+            </actions>
+        </event-block>
+        <comment>when the player gets to end of layout</comment>
+        <event-block sid="156994446881676">
+            <conditions>
+                <condition id="-1" name="Compare X" sid="780157879118315" type="Player">
+                    <param id="0" name="Comparison">4</param>
+                    <param id="1" name="X co-ordinate">LayoutWidth+17</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="353764801293028" type="Player" />
+            </actions>
+            <sub-events>
+                <comment>verify and unlock the next level - bug correction here: before when played all levels, so all levels will be unlocked, but if played, for example, level 1, then the bug was that level 2 will be unlocked and the higher levels will be locked again </comment>
+                <event-block sid="223407573895718">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="214876681172856" type="System">
+                            <param id="0" name="Variable">Playing</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">levelMAX</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="611465171883769" type="System">
+                            <param id="0" name="Variable">levelOK</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">Playing</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="706903001017052" type="System">
+                            <param id="0" name="Variable">levelOK</param>
+                            <param id="1" name="Value">Playing+1</param>
+                        </action>
+                        <action id="0" name="Set item" sid="802828206601315" type="LocalStorage">
+                            <param id="0" name="Key">&quot;levelOKabstractPlatformer_key&quot;</param>
+                            <param id="1" name="Value">levelOK</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>player vs food</comment>
+        <event-block sid="7700018187272751">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="8751227857382128" type="Player">
+                    <param id="0" name="Object">Food</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="3982508040560582" type="Food" />
+                <action id="0" name="Play" sid="394669794574922" type="Audio">
+                    <param id="0" name="Audio file">UI1</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-10</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="0" name="Call function" sid="298608373706910" type="Function">
+                    <param id="0" name="Name">&quot;AddPoints&quot;</param>
+                    <param id="1" name="Parameter {n}">1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <comment>give one life if it is possible</comment>
+                <event-block sid="3429673708552669">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="1321129356905395" type="Player">
+                            <param id="0" name="Instance variable">Lives</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="891922111625375" type="Player">
+                            <param id="0" name="Instance variable">Lives</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Add to" sid="3140463604685385" type="Player">
+                            <param id="0" name="Instance variable">Lives</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-5" name="Set width" sid="717918928318111" type="Hearts">
+                            <param id="0" name="Width">Player.Lives * 64</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>player vs spikes</comment>
+        <event-block sid="451265101323531">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="529158498443695" type="Player">
+                    <param id="0" name="Object">EnemySpikes</param>
+                </condition>
+                <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="923135378528297" type="PlayerSprites" />
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="372157756091088" type="Function">
+                    <param id="0" name="Name">&quot;HurtPlayer&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>player vs enemy</comment>
+        <event-block any="1" sid="3313289742396767">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="1053966907063292" type="Player">
+                    <param id="0" name="Object">Enemy</param>
+                </condition>
+                <condition id="1" name="Is overlapping another object" sid="263469650210302" type="Enemy">
+                    <param id="0" name="Object">Player</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="958963551911627">
+                    <conditions>
+                        <condition id="2" inverted="1" name="Is playing" sid="1590716885418588" type="Enemy">
+                            <param id="0" name="Animation">&quot;dead&quot; &amp; Enemy.Tipo</param>
+                        </condition>
+                        <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="6999499014621749" type="Enemy" />
+                        <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="7998388085350505" type="PlayerSprites" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="8302114742898079">
+                            <conditions>
+                                <condition behavior="Platform" id="4" name="Is falling" sid="956405277926755" type="Player" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="663999620369558" type="Audio">
+                                    <param id="0" name="Audio file">Sword Swing</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">-5</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="5512602363529738" type="Enemy">
+                                    <param id="0" name="Animation">&quot;dead&quot; &amp; Enemy.Tipo</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action behavior="Flash" id="0" name="Flash" sid="5948923679925858" type="Enemy">
+                                    <param id="0" name="&apos;On&apos; time">0.1</param>
+                                    <param id="1" name="&apos;Off&apos; time">0.1</param>
+                                    <param id="2" name="Duration">1.0</param>
+                                </action>
+                                <action behavior="Platform" id="9" name="Set vector Y" sid="143991040446100" type="Player">
+                                    <param id="0" name="Vector Y">-650</param>
+                                </action>
+                                <action id="0" name="Call function" sid="155215173592443" type="Function">
+                                    <param id="0" name="Name">&quot;AddPoints&quot;</param>
+                                    <param id="1" name="Parameter {n}">4</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="8778912235016317">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="2352783216932385" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="795058455605918" type="Function">
+                                    <param id="0" name="Name">&quot;HurtPlayer&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>enemy animation when sine is horizontal</comment>
+        <event-block sid="173079510885138">
+            <conditions>
+                <condition id="-11" name="For Each" sid="977970405140993" type="System">
+                    <param id="0" name="Object">Enemy</param>
+                </condition>
+                <condition behavior="Sine" id="1" name="Compare movement" sid="275545636495802" type="Enemy">
+                    <param id="0" name="Movement">0</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block any="1" sid="689447621897328">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="975634010589070" type="System">
+                            <param id="0" name="First value">Enemy.Sine.CyclePosition</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Second value">0.25</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="173176488464075" type="System">
+                            <param id="0" name="First value">Enemy.Sine.CyclePosition</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">0.75</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="7" name="Set mirrored" sid="733300261918831" type="Enemy">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="803403766752633">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="211896773236192" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="7" name="Set mirrored" sid="793072445098579" type="Enemy">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>enemy animation when sine is vertical</comment>
+        <event-block sid="633280167194047">
+            <conditions>
+                <condition id="-11" name="For Each" sid="489265083630752" type="System">
+                    <param id="0" name="Object">Enemy</param>
+                </condition>
+                <condition behavior="Sine" id="1" name="Compare movement" sid="326479279615731" type="Enemy">
+                    <param id="0" name="Movement">1</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="119027907380297">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="675524528327845" type="Enemy">
+                            <param id="0" name="Comparison">5</param>
+                            <param id="1" name="X co-ordinate">Player.X</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="7" name="Set mirrored" sid="958225494493939" type="Enemy">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="564118114522444">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="483793087441387" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="7" name="Set mirrored" sid="850317849030700" type="Enemy">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>destroy enemy when it stops flashing</comment>
+        <event-block sid="5450033184612756">
+            <conditions>
+                <condition behavior="Flash" id="1" name="On flash ended" sid="4806617095777006" type="Enemy" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="8667753839633322" type="Enemy" />
+                <action id="0" name="Call function" sid="158114205768225" type="Function">
+                    <param id="0" name="Name">&quot;RefreshHUD&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>set sine on/off of the enemy</comment>
+        <event-block sid="112111918142835">
+            <conditions>
+                <condition id="-11" name="For Each" sid="371268488581968" type="System">
+                    <param id="0" name="Object">Enemy</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="656834977706525">
+                    <conditions>
+                        <condition id="-3" name="Is on-screen" sid="744122857094778" type="Enemy" />
+                        <condition id="2" inverted="1" name="Is playing" sid="122354837342292" type="Enemy">
+                            <param id="0" name="Animation">&quot;dead&quot; &amp; Enemy.Tipo</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Sine" id="0" name="Set active" sid="689914273498844" type="Enemy">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="439161649809005">
+                    <conditions>
+                        <condition id="-3" inverted="1" name="Is on-screen" sid="426540276400130" type="Enemy" />
+                        <condition id="2" name="Is playing" sid="319158330866310" type="Enemy">
+                            <param id="0" name="Animation">&quot;dead&quot; &amp; Enemy.Tipo</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Sine" id="0" name="Set active" sid="529722885010806" type="Enemy">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>pause the game</comment>
+        <event-block any="1" sid="244475251947982">
+            <conditions>
+                <condition id="3" name="On touched object" sid="653971551187453" type="Touch">
+                    <param id="0" name="Object">Cpause</param>
+                </condition>
+                <condition id="0" name="On key pressed" sid="993176471887900" type="Keyboard">
+                    <param id="0" name="Key">80 (P)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-14" name="Toggle boolean" sid="332331269398950" type="Cpause">
+                    <param id="0" name="Instance variable">pause</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>when the game is paused</comment>
+        <event-block sid="756590664332103">
+            <conditions>
+                <condition id="-8" name="Is boolean instance variable set" sid="518463959231039" type="Cpause">
+                    <param id="0" name="Instance variable">pause</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="109961181090895" type="Cpause">
+                    <param id="0" name="Animation">&quot;play&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="10" name="Set master volume" sid="416906224743440" type="Audio">
+                    <param id="0" name="dB">-5</param>
+                </action>
+                <action id="0" name="Call function" sid="248350908533456" type="Function">
+                    <param id="0" name="Name">&quot;RefreshHUD&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="-13" name="Set time scale" sid="734092498515951" type="System">
+                    <param id="0" name="Time scale">0.0</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>when the game is not paused</comment>
+        <event-block sid="775972505440873">
+            <conditions>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="493610489457318" type="Cpause">
+                    <param id="0" name="Instance variable">pause</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="454365593850349" type="Cpause">
+                    <param id="0" name="Animation">&quot;pause&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="10" name="Set master volume" sid="515149396761957" type="Audio">
+                    <param id="0" name="dB">0</param>
+                </action>
+                <action id="-13" name="Set time scale" sid="438117446885323" type="System">
+                    <param id="0" name="Time scale">1.0</param>
+                </action>
+                <action id="0" name="Call function" sid="891606915410154" type="Function">
+                    <param id="0" name="Name">&quot;RefreshHUD&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>keyboard and touch: go to menu</comment>
+        <event-block any="1" sid="734201075356358">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="716714007803298" type="Keyboard">
+                    <param id="0" name="Key">77 (M)</param>
+                </condition>
+                <condition id="3" name="On touched object" sid="192925304292254" type="Touch">
+                    <param id="0" name="Object">Cmenu</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="533190854262558" type="System">
+                    <param id="0" name="Layout">Menu</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>-------------------- FUNCTIONS -----------------------</comment>
+        <comment>Function to when the player get hit</comment>
+        <event-block sid="710760181326805">
+            <conditions>
+                <condition id="0" name="On function" sid="248741773247752" type="Function">
+                    <param id="0" name="Name">&quot;HurtPlayer&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="644610452108890">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="971240499822923" type="Player">
+                            <param id="0" name="Instance variable">Lives</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="392844622717945" type="Player">
+                            <param id="0" name="Instance variable">Hurt</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="803581234283594" type="Player">
+                            <param id="0" name="Instance variable">Hurt</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action behavior="Platform" id="9" name="Set vector Y" sid="398012033583712" type="Player">
+                            <param id="0" name="Vector Y">-550</param>
+                        </action>
+                        <action id="0" name="Play" sid="704374258047445" type="Audio">
+                            <param id="0" name="Audio file">SFX5</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-15</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-12" name="Subtract from" sid="561066261583400" type="Player">
+                            <param id="0" name="Instance variable">Lives</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-5" name="Set width" sid="992567329067118" type="Hearts">
+                            <param id="0" name="Width">Player.Lives * 64</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="928095676773431" type="PlayerSprites">
+                            <param id="0" name="Animation">&quot;hurt&quot; &amp; PlayerSprites.players</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action behavior="Flash" id="0" name="Flash" sid="422350742057012" type="PlayerSprites">
+                            <param id="0" name="&apos;On&apos; time">0.1</param>
+                            <param id="1" name="&apos;Off&apos; time">0.1</param>
+                            <param id="2" name="Duration">1.2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="304356269972776">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="625944376343771" type="Player">
+                            <param id="0" name="Instance variable">Lives</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="682981926820029" type="Player">
+                            <param id="0" name="Instance variable">Hurt</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="643468277240789" type="Player">
+                            <param id="0" name="Instance variable">Hurt</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="369316041284058" type="Audio">
+                            <param id="0" name="Audio file">SFX5</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-15</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-12" name="Subtract from" sid="678565305525749" type="Player">
+                            <param id="0" name="Instance variable">Lives</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-5" name="Set width" sid="776430569176286" type="Hearts">
+                            <param id="0" name="Width">Player.Lives * 64</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="954248615707261" type="PlayerSprites">
+                            <param id="0" name="Animation">&quot;hurt&quot; &amp; PlayerSprites.players</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="11" name="Set collisions enabled" sid="663888608260581" type="Player">
+                            <param id="0" name="Collisions">0</param>
+                        </action>
+                        <action behavior="ScrollTo" id="1" name="Set enabled" sid="259156272897761" type="Player">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action behavior="Platform" id="9" name="Set vector Y" sid="765490234917163" type="Player">
+                            <param id="0" name="Vector Y">-800</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="364864053173963" type="Player">
+                            <param id="0" name="Instance variable">IsOk</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Function to refresh the text on HUD</comment>
+        <event-block sid="784623712035877">
+            <conditions>
+                <condition id="0" name="On function" sid="473085185109435" type="Function">
+                    <param id="0" name="Name">&quot;RefreshHUD&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="703012574880995">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="348233828816019" type="Cpause">
+                            <param id="0" name="Instance variable">pause</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="352525497589500" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="856079596350059" type="Texto">
+                            <param id="0" name="Text"> &quot;Level &quot; &amp; Playing &amp; newline &amp; &quot;PAUSE&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="637277910725429">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="149710386097821" type="Cpause">
+                            <param id="0" name="Instance variable">pause</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="169678535884318" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="380032122430977" type="Texto">
+                            <param id="0" name="Text"> &quot;Level &quot; &amp; Playing &amp; newline &amp; &quot;Enemies:&quot; &amp; Enemy.Count &amp; newline &amp; &quot;Crystals:&quot; &amp; Crystal.Count &amp; newline &amp; &quot;Points:&quot; &amp; Points</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Function to add points and the animation of the points</comment>
+        <event-block sid="926821894258855">
+            <conditions>
+                <condition id="0" name="On function" sid="369872070848911" type="Function">
+                    <param id="0" name="Name">&quot;AddPoints&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="455843526109113" type="Player">
+                    <param id="0" name="Object">TextPoints</param>
+                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                    <param id="2" name="Image point">1</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="718575695660839" type="TextPoints">
+                    <param id="0" name="Angle">270</param>
+                </action>
+                <action id="0" name="Set text" sid="283227643689765" type="TextPoints">
+                    <param id="0" name="Text">&quot;+&quot; &amp; Function.Param(0)</param>
+                </action>
+                <action id="-10" name="Add to" sid="989690079637455" type="System">
+                    <param id="0" name="Variable">Points</param>
+                    <param id="1" name="Value">Function.Param(0)</param>
+                </action>
+                <action id="0" name="Call function" sid="879266434053085" type="Function">
+                    <param id="0" name="Name">&quot;RefreshHUD&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>----- ENEMY 2 EVENTS ----- begin</comment>
+        <comment>Enemy2 is an enemy that walks right or left on plain terrain and it will change direction if it has a wall on his side or near the end of the floor</comment>
+        <comment>Animation and simple AI to right</comment>
+        <event-block sid="733549054777416">
+            <conditions>
+                <condition id="-11" name="For Each" sid="361399675092517" type="System">
+                    <param id="0" name="Object">Enemy2</param>
+                </condition>
+                <condition id="-8" name="Is boolean instance variable set" sid="925070456514432" type="Enemy2">
+                    <param id="0" name="Instance variable">RightWalk</param>
+                </condition>
+                <condition id="2" inverted="1" name="Is playing" sid="400873035778532" type="Enemy2">
+                    <param id="0" name="Animation">&quot;dead&quot; &amp; Enemy2.Kind</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Set mirrored" sid="540936936496410" type="Enemy2">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action behavior="Platform" id="7" name="Simulate control" sid="305385368850960" type="Enemy2">
+                    <param id="0" name="Control">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Animation and simple AI to left</comment>
+        <event-block sid="445122230998942">
+            <conditions>
+                <condition id="-11" name="For Each" sid="509864429896480" type="System">
+                    <param id="0" name="Object">Enemy2</param>
+                </condition>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="846034044987601" type="Enemy2">
+                    <param id="0" name="Instance variable">RightWalk</param>
+                </condition>
+                <condition id="2" inverted="1" name="Is playing" sid="187794761495967" type="Enemy2">
+                    <param id="0" name="Animation">&quot;dead&quot; &amp; Enemy2.Kind</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Set mirrored" sid="745612686148962" type="Enemy2">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action behavior="Platform" id="7" name="Simulate control" sid="503063838641469" type="Enemy2">
+                    <param id="0" name="Control">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>If Enemy2 has wall to left, then it will turn right</comment>
+        <event-block any="1" sid="213022717553015">
+            <conditions>
+                <condition behavior="Platform" id="10" name="Is by wall" sid="731582393763402" type="Enemy2">
+                    <param id="0" name="Side">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="982718527637617" type="Enemy2">
+                    <param id="0" name="Instance variable">RightWalk</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>If Enemy2 has wall to right, then it will turn left</comment>
+        <event-block sid="164480333900029">
+            <conditions>
+                <condition behavior="Platform" id="10" name="Is by wall" sid="396525137194954" type="Enemy2">
+                    <param id="0" name="Side">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="648189070405534" type="Enemy2">
+                    <param id="0" name="Instance variable">RightWalk</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Look at the collision box for Enemy2 to understand why it will turn left/right when it is not on floor (on the event below)</comment>
+        <comment>If Enemy2 is not on floor and walking right/left, then it will turn left/right</comment>
+        <event-block sid="545524968944549">
+            <conditions>
+                <condition behavior="Platform" id="2" inverted="1" name="Is on floor" sid="672809617987775" type="Enemy2" />
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="631169266604197" type="Enemy2">
+                    <param id="0" name="Instance variable">ChangeDir</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="546646074124560" type="Enemy2">
+                    <param id="0" name="Instance variable">ChangeDir</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-14" name="Toggle boolean" sid="414894583328617" type="Enemy2">
+                    <param id="0" name="Instance variable">RightWalk</param>
+                </action>
+                <action id="-16" name="Wait" sid="376758407249881" type="System">
+                    <param id="0" name="Seconds">0.2</param>
+                </action>
+                <action id="-13" name="Set boolean" sid="981348783441758" type="Enemy2">
+                    <param id="0" name="Instance variable">ChangeDir</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Player vs Enemy2  --- this a copy of Player vs Enemy, changing Enemy to Enemy2</comment>
+        <event-block any="1" sid="726261085404245">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="523608325047418" type="Player">
+                    <param id="0" name="Object">Enemy2</param>
+                </condition>
+                <condition id="1" name="Is overlapping another object" sid="607943684937299" type="Enemy2">
+                    <param id="0" name="Object">Player</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="284813558245598">
+                    <conditions>
+                        <condition id="2" inverted="1" name="Is playing" sid="336065431129149" type="Enemy2">
+                            <param id="0" name="Animation">&quot;dead&quot; &amp; Enemy2.Kind</param>
+                        </condition>
+                        <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="959153394277714" type="Enemy2" />
+                        <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="686548093917573" type="PlayerSprites" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="227936759501452">
+                            <conditions>
+                                <condition behavior="Platform" id="4" name="Is falling" sid="828361292001080" type="Player" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="221436246725587" type="Audio">
+                                    <param id="0" name="Audio file">Sword Swing</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">-5</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="320250069143514" type="Enemy2">
+                                    <param id="0" name="Animation">&quot;dead&quot; &amp; Enemy2.Kind</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action behavior="Platform" id="9" name="Set vector Y" sid="184033012759338" type="Player">
+                                    <param id="0" name="Vector Y">-650</param>
+                                </action>
+                                <action id="0" name="Call function" sid="264128355952207" type="Function">
+                                    <param id="0" name="Name">&quot;AddPoints&quot;</param>
+                                    <param id="1" name="Parameter {n}">3</param>
+                                </action>
+                                <action behavior="Flash" id="0" name="Flash" sid="710075715643796" type="Enemy2">
+                                    <param id="0" name="&apos;On&apos; time">0.1</param>
+                                    <param id="1" name="&apos;Off&apos; time">0.1</param>
+                                    <param id="2" name="Duration">1.0</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="238556687964643" type="System">
+                                    <param id="0" name="Seconds">1.0</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="133769381912187" type="Enemy2" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="545632810833443">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="720540767797520" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="832441806103468" type="Function">
+                                    <param id="0" name="Name">&quot;HurtPlayer&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>----- ENEMY 2 EVENTS ----- end</comment>
+        <event-block sid="363680338241586">
+            <conditions>
+                <condition id="17" name="On tap object" sid="187914582339979" type="Touch">
+                    <param id="0" name="Object">facebook</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="8" name="Open URL in new window" sid="842780845270841" type="Browser">
+                    <param id="0" name="URL">&quot;http://www.facebook.com/bnagames/?ref=aymt_homepage_panel&quot;</param>
+                    <param id="1" name="Tag">&quot;NewWindow&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="965340221871280">
+            <conditions>
+                <condition id="17" name="On tap object" sid="678326869474232" type="Touch">
+                    <param id="0" name="Object">moregames</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="8" name="Open URL in new window" sid="716408134504512" type="Browser">
+                    <param id="0" name="URL">&quot;http://mixygames.com&quot;</param>
+                    <param id="1" name="Tag">&quot;NewWindow&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="738311448617818">
+            <conditions>
+                <condition id="17" name="On tap object" sid="933168269095188" type="Touch">
+                    <param id="0" name="Object">home</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="3" name="Start" sid="138582929283355" type="home">
+                    <param id="0" name="From">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="509551812849003" type="System">
+                    <param id="0" name="Seconds">0.3</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="289096648719063" type="System">
+                    <param id="0" name="Layout">Menu</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="295694829362152">
+            <conditions>
+                <condition id="17" name="On tap object" sid="925651066555185" type="Touch">
+                    <param id="0" name="Object">full_screen</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="333417805625922">
+                    <conditions>
+                        <condition id="10" name="Is fullscreen" sid="758421779620036" type="Browser" />
+                    </conditions>
+                    <actions>
+                        <action id="11" name="Cancel fullscreen" sid="912399090642169" type="Browser" />
+                    </actions>
+                </event-block>
+                <event-block sid="414957712961908">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="119059822164990" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="10" name="Request fullscreen" sid="976943877791459" type="Browser">
+                            <param id="0" name="Mode">3</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>
